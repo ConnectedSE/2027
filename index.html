@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ConnectedSE 2027</title>
+<meta name="description" content="ConnectedSE 2027, the First International Workshop on LLM-Assisted Software Engineering at the Intersection of Mobile and Cyber-Physical Systems, co-located with FSE 2027 in Shenzhen, China.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff;
+    --bg-alt: #f4f7fa;
+    --ink: #13202e;
+    --ink-soft: #4a5a6b;
+    --line: #dde4ec;
+    --brand: #0f6e7a;
+    --brand-ink: #ffffff;
+    --accent: #e0772d;
+    --hero-a: #0b2a3a;
+    --hero-b: #0f6e7a;
+    --card: #ffffff;
+    --radius: 12px;
+    --max: 1080px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0e1620;
+      --bg-alt: #131e2a;
+      --ink: #e7edf3;
+      --ink-soft: #a5b3c2;
+      --line: #25354a;
+      --brand: #3fb6c2;
+      --brand-ink: #06202a;
+      --accent: #f39a5a;
+      --card: #16222f;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font: 16px/1.65 "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  a { color: var(--brand); }
+  h1, h2, h3 { font-family: "Space Grotesk", "Inter", sans-serif; line-height: 1.2; }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+
+  /* Navigation */
+  header.nav {
+    position: sticky; top: 0; z-index: 10;
+    background: color-mix(in srgb, var(--bg) 92%, transparent);
+    backdrop-filter: blur(8px); border-bottom: 1px solid var(--line);
+  }
+  .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+  .logo { display: flex; align-items: center; gap: 10px; font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 1.15rem; color: var(--ink); text-decoration: none; }
+  .logo svg { width: 30px; height: 30px; }
+  .nav ul { list-style: none; display: flex; gap: 22px; margin: 0; padding: 0; }
+  .nav ul a { color: var(--ink-soft); text-decoration: none; font-size: .92rem; font-weight: 500; }
+  .nav ul a:hover { color: var(--brand); }
+  .menu-btn { display: none; background: none; border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; color: var(--ink); font-size: .9rem; }
+  @media (max-width: 860px) {
+    .menu-btn { display: block; }
+    .nav ul { display: none; position: absolute; top: 60px; left: 0; right: 0; flex-direction: column; gap: 0; background: var(--bg); border-bottom: 1px solid var(--line); padding: 8px 20px 16px; }
+    .nav ul.open { display: flex; }
+    .nav ul a { display: block; padding: 8px 0; }
+  }
+
+  /* Status banner: delete this block once the workshop is accepted */
+  .status { background: var(--accent); color: #1b0e03; text-align: center; font-size: .9rem; font-weight: 500; padding: 8px 16px; }
+
+  /* Hero */
+  .hero {
+    background: linear-gradient(135deg, var(--hero-a), var(--hero-b));
+    color: #fff; padding: 88px 0 80px; position: relative; overflow: hidden;
+  }
+  .hero svg.net { position: absolute; right: -60px; top: -20px; width: 520px; opacity: .18; pointer-events: none; }
+  .hero .tag { display: inline-block; font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; background: rgba(255,255,255,.14); padding: 4px 12px; border-radius: 99px; }
+  .hero h1 { font-size: clamp(2.4rem, 6vw, 3.8rem); margin: 18px 0 10px; }
+  .hero p.sub { font-size: clamp(1.05rem, 2.2vw, 1.3rem); max-width: 760px; margin: 0 0 22px; color: #d9eef0; }
+  .hero .meta { display: flex; flex-wrap: wrap; gap: 10px 26px; font-weight: 500; margin-bottom: 30px; }
+  .btn { display: inline-block; padding: 11px 20px; border-radius: 10px; font-weight: 600; text-decoration: none; margin: 0 10px 10px 0; }
+  .btn.primary { background: #fff; color: var(--hero-a); }
+  .btn.ghost { border: 1px solid rgba(255,255,255,.5); color: #fff; }
+
+  /* Sections */
+  section { padding: 72px 0; }
+  section.alt { background: var(--bg-alt); }
+  section h2 { font-size: 2rem; margin: 0 0 8px; }
+  .kicker { color: var(--accent); font-weight: 600; font-size: .85rem; text-transform: uppercase; letter-spacing: .08em; }
+  .lead { font-size: 1.1rem; color: var(--ink-soft); max-width: 780px; }
+  .grid { display: grid; gap: 18px; }
+  .g2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+  .g3 { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; }
+  .card h3 { margin: 0 0 8px; font-size: 1.12rem; }
+  .card p { margin: 0; color: var(--ink-soft); }
+  .num { display: inline-flex; width: 32px; height: 32px; border-radius: 50%; align-items: center; justify-content: center; background: var(--brand); color: var(--brand-ink); font-weight: 700; margin-bottom: 10px; }
+  .evidence { display: block; margin-top: 12px; font-size: .88rem; font-weight: 600; color: var(--brand); }
+  ul.topics { columns: 2 280px; padding-left: 18px; }
+  ul.topics li { margin-bottom: 6px; break-inside: avoid; }
+  .callout { border-left: 4px solid var(--accent); background: var(--card); padding: 14px 18px; border-radius: 0 var(--radius) var(--radius) 0; margin: 22px 0; }
+
+  /* Dates */
+  .dates { width: 100%; border-collapse: collapse; background: var(--card); border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); }
+  .dates td { padding: 14px 18px; border-bottom: 1px solid var(--line); }
+  .dates tr:last-child td { border-bottom: 0; }
+  .dates td:last-child { text-align: right; font-weight: 600; white-space: nowrap; }
+  @media (max-width: 560px) {
+    .dates td { padding: 12px; font-size: .92rem; }
+    .dates td:last-child { white-space: normal; min-width: 96px; }
+  }
+  .dates .group td { background: var(--bg-alt); font-weight: 700; font-size: .85rem; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-soft); text-align: left; }
+
+  /* People */
+  .person { display: flex; gap: 14px; align-items: flex-start; }
+  .avatar { flex: none; width: 64px; height: 64px; border-radius: 50%; background: var(--brand); color: var(--brand-ink); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.2rem; object-fit: cover; }
+  .person h3 { margin: 0; font-size: 1.05rem; }
+  .person .aff { color: var(--ink-soft); font-size: .92rem; }
+  .person .role { font-size: .88rem; margin-top: 6px; }
+
+  footer { border-top: 1px solid var(--line); padding: 28px 0; color: var(--ink-soft); font-size: .9rem; }
+  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="ConnectedSE home">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <circle cx="16" cy="16" r="15" fill="#0f6e7a"/>
+        <g stroke="#fff" stroke-width="1.8" fill="none"><path d="M9 11 L16 16 L23 10 M16 16 L12 23 M16 16 L22 22"/></g>
+        <g fill="#fff"><circle cx="9" cy="11" r="2.4"/><circle cx="23" cy="10" r="2.4"/><circle cx="12" cy="23" r="2.4"/><circle cx="22" cy="22" r="2.4"/></g>
+        <circle cx="16" cy="16" r="3.2" fill="#e0772d"/>
+      </svg>
+      ConnectedSE 2027
+    </a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="menu">Menu</button>
+    <ul id="menu">
+      <li><a href="#cfp">Call for Papers</a></li>
+      <li><a href="#dates">Dates</a></li>
+      <li><a href="#submission">Submission</a></li>
+      <li><a href="#organization">Organization</a></li>
+      <li><a href="#venue">Venue</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- STATUS BANNER: remove this div once the workshop is accepted by FSE 2027 -->
+<div class="status">This workshop has been proposed to FSE 2027. Details may change until acceptance is confirmed.</div>
+
+<div class="hero" id="top">
+  <svg class="net" viewBox="0 0 400 400" aria-hidden="true">
+    <g stroke="#fff" stroke-width="2" fill="none">
+      <path d="M60 80 L200 190 L340 70 M200 190 L120 330 M200 190 L320 300 M60 80 L120 330 M340 70 L320 300"/>
+    </g>
+    <g fill="#fff"><circle cx="60" cy="80" r="14"/><circle cx="340" cy="70" r="14"/><circle cx="120" cy="330" r="14"/><circle cx="320" cy="300" r="14"/><circle cx="200" cy="190" r="22"/></g>
+  </svg>
+  <div class="wrap">
+    <span class="tag">1st International Workshop · co-located with FSE 2027</span>
+    <h1>ConnectedSE 2027</h1>
+    <p class="sub">The First International Workshop on LLM-Assisted Software Engineering at the Intersection of Mobile and Cyber-Physical Systems</p>
+    <div class="meta">
+      <span>📍 Shenzhen, China</span>
+      <span>📅 July 2027 (exact day to be announced)</span>
+      <span>🏛 In person</span>
+    </div>
+    <a class="btn primary" href="#cfp">Call for Papers</a>
+    <a class="btn ghost" href="#dates">Important Dates</a>
+  </div>
+</div>
+
+<main>
+
+<section id="about">
+  <div class="wrap">
+    <span class="kicker">About</span>
+    <h2>Why ConnectedSE</h2>
+    <p class="lead">Connected software rarely lives in one place. One user-visible function can span a mobile app, a vendor cloud service, a device firmware image, and a communication protocol, each developed and updated independently and often partly opaque to the engineers who depend on it.</p>
+    <p>This makes correctness, security, and privacy hard to assess across component boundaries. Large language models (LLMs) offer new support for program understanding, test generation, vulnerability analysis, debugging, and maintenance, but applying them here requires methods that link heterogeneous artifacts and validate their conclusions against observable behavior.</p>
+    <p>ConnectedSE brings together the mobile, embedded, protocol, cloud, and program-analysis communities around LLM-assisted engineering of connected and cyber-physical software ecosystems. It covers both the use of LLMs to understand and improve connected software and the engineering of connected systems that incorporate LLM-based components.</p>
+    <div class="callout"><strong>Our guiding question.</strong> What evidence is needed to make reliable claims about the behavior of a connected system?</div>
+  </div>
+</section>
+
+<section id="cfp" class="alt">
+  <div class="wrap">
+    <span class="kicker">Call for Papers</span>
+    <h2>Five themes</h2>
+    <p class="lead">Different claims about a connected system require different kinds of evidence. The workshop is organized around five themes, each tied to one evidence problem.</p>
+    <div class="grid g3">
+      <div class="card"><span class="num">1</span><h3>Cross-artifact understanding and traceability</h3><p>Techniques that connect GUI actions, app code, APIs, cloud services, firmware, protocols, and execution traces, recover dependencies and data flows, or interpret undocumented interfaces.</p><span class="evidence">Evidence problem: linkage</span></div>
+      <div class="card"><span class="num">2</span><h3>End-to-end testing, debugging, and evolution</h3><p>End-to-end test generation, state exploration, oracle construction, fault localization, and repair validation across app, cloud, and device updates.</p><span class="evidence">Evidence problem: oracles</span></div>
+      <div class="card"><span class="num">3</span><h3>Regulatory evidence and opaque components</h3><p>Checking privacy and security obligations across app code, network traffic, backends, and devices, including vendor clouds, closed firmware, and over-the-air updates.</p><span class="evidence">Evidence problem: defensibility</span></div>
+      <div class="card"><span class="num">4</span><h3>Assurance of LLM-enabled connected systems</h3><p>Validating generated automation rules and API interactions, keeping actions within authorization boundaries, linking model decisions to observable effects, and handling failures safely.</p><span class="evidence">Evidence problem: attribution</span></div>
+      <div class="card"><span class="num">5</span><h3>Benchmarks, evaluation, and reproducibility</h3><p>Benchmarks, datasets, testbeds, replications, negative results, and comparisons with non-LLM baselines across mobile apps, cloud services, and devices.</p><span class="evidence">Evidence problem: comparability</span></div>
+      <div class="card"><span class="num">★</span><h3>A shared deliverable</h3><p>The five themes converge on a specification for reproducible benchmarks, naming representative tasks, required artifacts, suitable oracles, and reproducibility assumptions. We will draft it together at the workshop.</p></div>
+    </div>
+
+    <h3 style="margin-top:44px">Scope</h3>
+    <p>Companion-app ecosystems, including smart homes and wearables, are our reference setting. We also welcome work on mobile software more broadly, and on medical and health devices, industrial IoT and operational technology, smart buildings and energy systems, consumer electronics and firmware, voice assistants and edge-AI products, robotics, and connected-vehicle telematics.</p>
+    <div class="callout"><strong>One boundary is enough.</strong> Work reasoning across app and cloud, cloud and device, app and device, or app and external services does not need to cover the whole chain. Single-artifact studies are in scope when they make their relationship to ecosystem behavior explicit or provide a substantive advance for LLM-assisted mobile software engineering.</div>
+
+    <h3>Topics of interest include, but are not limited to</h3>
+    <ul class="topics">
+      <li>LLM-assisted program comprehension across apps, clouds, and devices</li>
+      <li>Recovery of cross-component dependencies and data flows</li>
+      <li>Interpretation of undocumented APIs and protocols</li>
+      <li>LLM-guided GUI, API, and protocol testing and fuzzing</li>
+      <li>Oracles for remote and physical state</li>
+      <li>Fault localization and repair across app, cloud, and firmware updates</li>
+      <li>Privacy and security compliance checking (e.g., GDPR, Cyber Resilience Act)</li>
+      <li>Analysis of opaque components: vendor clouds, closed firmware, OTA updates</li>
+      <li>Assurance and authorization of LLM agents acting on connected systems</li>
+      <li>Validation of generated automation rules</li>
+      <li>Benchmarks, datasets, testbeds, and digital twins</li>
+      <li>Replications, negative results, and comparisons with non-LLM baselines</li>
+      <li>Industrial experience reports</li>
+    </ul>
+  </div>
+</section>
+
+<section id="dates">
+  <div class="wrap">
+    <span class="kicker">Important Dates</span>
+    <h2>Deadlines</h2>
+    <p class="lead">All deadlines are Anywhere on Earth (AoE, UTC-12).</p>
+    <table class="dates">
+      <tr class="group"><td colspan="2">Archival track (ACM Digital Library)</td></tr>
+      <tr><td>Paper submission</td><td>11 February 2027</td></tr>
+      <tr><td>Author notification</td><td>18 March 2027</td></tr>
+      <tr><td>Camera-ready</td><td>8 April 2027</td></tr>
+      <tr class="group"><td colspan="2">Non-archival track</td></tr>
+      <tr><td>Late-breaking results and posters, submission</td><td>15 April 2027</td></tr>
+      <tr><td>Late-breaking results and posters, notification</td><td>29 April 2027</td></tr>
+      <tr><td>Journal-first and encore talks (rolling)</td><td>until 15 April 2027</td></tr>
+      <tr class="group"><td colspan="2">Workshop</td></tr>
+      <tr><td>ConnectedSE 2027 at FSE, Shenzhen</td><td>July 2027 (TBA)</td></tr>
+    </table>
+  </div>
+</section>
+
+<section id="submission" class="alt">
+  <div class="wrap">
+    <span class="kicker">Submission</span>
+    <h2>Contribution types</h2>
+    <div class="grid g2">
+      <div class="card">
+        <h3>Archival track</h3>
+        <p>Published in the ACM Digital Library as <strong>extended abstracts, free of article processing charges</strong>.</p>
+        <ul>
+          <li>Research, experience, replication, negative-result, tool, and dataset or benchmark extended abstracts: <strong>up to 5 pages</strong> including references.</li>
+          <li>Vision, emerging-ideas, and position extended abstracts: <strong>up to 3 pages</strong> including references.</li>
+        </ul>
+        <p>Submissions undergo double-anonymous review by at least three program committee members.</p>
+      </div>
+      <div class="card">
+        <h3>Non-archival track</h3>
+        <p>Presented at the workshop but not published, so the work stays free to be submitted elsewhere.</p>
+        <ul>
+          <li><strong>Encore talks</strong>: a one-page abstract referring to work published or accepted elsewhere in the previous 24 months.</li>
+          <li><strong>Late-breaking results, lightning talks, and posters</strong>: 1 to 2 pages.</li>
+          <li><strong>Journal-first</strong>: recent journal papers, checked for prior peer review and topical fit.</li>
+        </ul>
+        <p>Work under review elsewhere is eligible for this track only.</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top:40px">Guidelines</h3>
+    <ul>
+      <li>Submissions must follow the ACM format adopted by FSE 2027. Formatting details and the submission link will be published here.</li>
+      <li>Reviewing criteria are relevance, technical credibility, clarity, evidence appropriate to the contribution type, and ability to spark discussion. Vision, position, and emerging-ideas papers do not need a mature evaluation, and preliminary results are welcome.</li>
+      <li>For an archival contribution to appear in the proceedings, at least one of its authors must register for the workshop.</li>
+      <li>FSE 2027 is an in-person event, and each accepted contribution must be presented on site.</li>
+      <li>Following the SIGSOFT policy, the organizers and their directly supervised students, postdocs, and employees do not submit to ConnectedSE.</li>
+      <li>As a published ACM author, you and your co-authors are subject to all ACM Publications Policies, including ACM's new <a href="https://www.acm.org/publications/policies/research-involving-human-participants-and-subjects">Publications Policy on Research Involving Human Participants and Subjects</a>.</li>
+    </ul>
+    <p><a class="btn" style="background:var(--brand);color:var(--brand-ink)" href="#submission" aria-disabled="true">Submission site (coming soon)</a></p>
+  </div>
+</section>
+
+
+<section id="organization" class="alt">
+  <div class="wrap">
+    <span class="kicker">Organization</span>
+    <h2>Organizing committee</h2>
+    <p class="lead">All organizers serve as co-chairs with equal standing.</p>
+    <!-- To use a photo, replace a <div class="avatar">XX</div> with <img class="avatar" src="img/name.jpg" alt="Name"> -->
+    <div class="grid g3">
+      <div class="card person"><div class="avatar">FP</div><div><h3>Francesco Pagano</h3><div class="aff">University of Verona, Italy</div><div class="role">Submissions · main contact</div></div></div>
+      <div class="card person"><div class="avatar">LF</div><div><h3>Luca Ferrari</h3><div class="aff">IMT School for Advanced Studies Lucca, Italy</div><div class="role">Program committee and reviewing</div></div></div>
+      <div class="card person"><div class="avatar">MA</div><div><h3>Marco Alecci</h3><div class="aff">SnT, University of Luxembourg, Luxembourg</div><div class="role">Non-archival track and publicity</div></div></div>
+      <div class="card person"><div class="avatar">LV</div><div><h3>Luca Verderame</h3><div class="aff">University of Genoa, Italy</div><div class="role">Industry outreach and demonstrations</div></div></div>
+      <div class="card person"><div class="avatar">JK</div><div><h3>Jacques Klein</h3><div class="aff">SnT, University of Luxembourg, Luxembourg</div><div class="role">Keynote and proceedings</div></div></div>
+      <div class="card person"><div class="avatar">GD</div><div><h3>Gianmarco De Vita</h3><div class="aff">USI Lugano, Switzerland</div><div class="role">Web chair</div></div></div>
+    </div>
+
+    <h2 style="margin-top:56px">Program committee</h2>
+    <p>To be announced.</p>
+    <!-- Add confirmed PC members here, one <li> per person:
+    <ul class="topics">
+      <li>Name (Affiliation)</li>
+    </ul>
+    -->
+  </div>
+</section>
+
+<section id="venue">
+  <div class="wrap">
+    <span class="kicker">Venue</span>
+    <h2>Shenzhen, China</h2>
+    <p>ConnectedSE 2027 is co-located with the <a href="https://conf.researchr.org/home/fse-2027">ACM International Conference on the Foundations of Software Engineering (FSE 2027)</a>. Registration, travel, and accommodation information is available on the FSE 2027 website.</p>
+    <h3>Contact</h3>
+    <p>For any question, write to <a href="mailto:francesco.pagano@univr.it">francesco.pagano@univr.it</a>.</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2027 ConnectedSE Organizing Committee</span>
+    <span>Co-located with <a href="https://conf.researchr.org/home/fse-2027">FSE 2027</a></span>
+  </div>
+</footer>
+
+<script>
+  const btn = document.querySelector('.menu-btn');
+  const menu = document.getElementById('menu');
+  btn.addEventListener('click', () => {
+    const open = menu.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    menu.classList.remove('open');
+    btn.setAttribute('aria-expanded', false);
+  }));
+</script>
+</body>
+</html>
