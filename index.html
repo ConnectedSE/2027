@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ConnectedSE 2027</title>
-<meta name="description" content="ConnectedSE 2027, the First International Workshop on LLM-Assisted Software Engineering at the Intersection of Mobile and Cyber-Physical Systems, co-located with FSE 2027 in Shenzhen, China.">
+<meta name="description" content="ConnectedSE 2027, the First International Workshop on LLM-Assisted Software Engineering for Cross-Layer Mobile and Cyber-Physical Systems, co-located with FSE 2027 in Shenzhen, China.">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -164,7 +164,7 @@
   <div class="wrap">
     <span class="tag">1st International Workshop · co-located with <a href="https://conf.researchr.org/home/fse-2027" style="color:inherit;text-decoration:underline">FSE 2027</a></span>
     <h1>ConnectedSE 2027</h1>
-    <p class="sub">The First International Workshop on LLM-Assisted Software Engineering at the Intersection of Mobile and Cyber-Physical Systems</p>
+    <p class="sub">The First International Workshop on LLM-Assisted Software Engineering for Cross-Layer Mobile and Cyber-Physical Systems</p>
     <div class="meta">
       <span>📍 Shenzhen, China</span>
       <span>📅 July 2027 (exact day to be announced)</span>
@@ -181,42 +181,42 @@
   <div class="wrap">
     <span class="kicker">About</span>
     <h2>Why ConnectedSE</h2>
-    <p class="lead">Connected software rarely lives in one place. One user-visible function can span a mobile app, a vendor cloud service, a device firmware image, and a communication protocol, each developed and updated independently and often partly opaque to the engineers who depend on it.</p>
-    <p>This makes correctness, security, and privacy hard to assess across component boundaries. Large language models (LLMs) offer new support for program understanding, test generation, vulnerability analysis, debugging, and maintenance, but applying them here requires methods that link heterogeneous artifacts and validate their conclusions against observable behavior.</p>
-    <p>ConnectedSE brings together the mobile, embedded, protocol, cloud, and program-analysis communities around LLM-assisted engineering of connected and cyber-physical software ecosystems. It covers both the use of LLMs to understand and improve connected software and the engineering of connected systems that incorporate LLM-based components.</p>
-    <div class="callout"><strong>Our guiding question.</strong> What evidence is needed to make reliable claims about the behavior of a connected system?</div>
+    <p class="lead">Many features of connected software are cross-layer. A single user-visible function can cross a mobile app, a vendor or manufacturer cloud, device firmware, and a physical device or vehicle, each developed and updated independently and often partly opaque to the engineers who depend on it.</p>
+    <p>Many failures, vulnerabilities, and privacy leaks arise at the interfaces between these layers rather than inside any one of them. Large language models (LLMs) offer new support for program understanding, test generation, vulnerability analysis, debugging, and maintenance, but their conclusions must be validated against behavior that no single artifact contains.</p>
+    <p>ConnectedSE puts these cross-layer features at its center. It covers both the use of LLMs to understand, test, and secure them and the engineering of systems in which LLM-based components act across layers. Application domains, from smart homes and wearables to connected vehicles, medical devices, and industrial IoT, are instances of the same problem rather than separate tracks.</p>
+    <div class="callout"><strong>Our guiding question.</strong> What evidence is needed to make a reliable claim about a feature whose behavior no single layer contains?</div>
   </div>
 </section>
 
 <section id="cfp" class="alt">
   <div class="wrap">
     <span class="kicker">Call for Papers</span>
-    <h2>Five themes</h2>
-    <p class="lead">Different claims about a connected system require different kinds of evidence. The workshop is organized around five themes, each tied to one evidence problem.</p>
+    <h2>Four themes</h2>
+    <p class="lead">The workshop is organized around four problems that arise at the interfaces between layers. Each one is tied to a kind of claim and to the evidence that claim requires.</p>
     <div class="grid g3">
-      <div class="card"><span class="num">1</span><h3>Cross-artifact understanding and traceability</h3><p>Techniques that connect GUI actions, app code, APIs, cloud services, firmware, protocols, and execution traces, recover dependencies and data flows, or interpret undocumented interfaces.</p><span class="evidence">Evidence problem: linkage</span></div>
-      <div class="card"><span class="num">2</span><h3>End-to-end testing, debugging, and evolution</h3><p>End-to-end test generation, state exploration, oracle construction, fault localization, and repair validation across app, cloud, and device updates.</p><span class="evidence">Evidence problem: oracles</span></div>
-      <div class="card"><span class="num">3</span><h3>Regulatory evidence and opaque components</h3><p>Checking privacy and security obligations across app code, network traffic, backends, and devices, including vendor clouds, closed firmware, and over-the-air updates.</p><span class="evidence">Evidence problem: defensibility</span></div>
-      <div class="card"><span class="num">4</span><h3>Assurance of LLM-enabled connected systems</h3><p>Validating generated automation rules and API interactions, keeping actions within authorization boundaries, linking model decisions to observable effects, and handling failures safely.</p><span class="evidence">Evidence problem: attribution</span></div>
-      <div class="card"><span class="num">5</span><h3>Benchmarks, evaluation, and reproducibility</h3><p>Benchmarks, datasets, testbeds, replications, negative results, and comparisons with non-LLM baselines across mobile apps, cloud services, and devices.</p><span class="evidence">Evidence problem: comparability</span></div>
-      <div class="card"><span class="num">★</span><h3>A shared deliverable</h3><p>The five themes converge on a specification for reproducible benchmarks, naming representative tasks, required artifacts, suitable oracles, and reproducibility assumptions. We will draft it together at the workshop.</p></div>
+      <div class="card"><span class="num">1</span><h3>Cross-layer understanding and traceability</h3><p>Techniques that connect GUI actions, app code, APIs, cloud services, firmware, protocols, and execution traces, recover dependencies and data flows, or interpret undocumented interfaces.</p><span class="evidence">Evidence problem: linkage</span></div>
+      <div class="card"><span class="num">2</span><h3>Cross-layer testing, debugging, and evolution</h3><p>End-to-end test generation, state exploration, oracle construction, fault localization, and repair validation across app, cloud, device, and vehicle updates, with simulators and digital twins as oracles for physical state.</p><span class="evidence">Evidence problem: oracles</span></div>
+      <div class="card"><span class="num">3</span><h3>Security, privacy, and compliance at layer interfaces</h3><p>Checking privacy and security obligations across app code, network traffic, backends, and devices, including opaque layers such as vendor clouds, closed firmware, and over-the-air updates.</p><span class="evidence">Evidence problem: defensibility</span></div>
+      <div class="card"><span class="num">4</span><h3>LLM-based components acting across layers</h3><p>Validating the automation rules and API interactions generated by smart-home agents and in-car assistants, keeping actions within authorization boundaries, linking model decisions to observable effects, and handling failures safely.</p><span class="evidence">Evidence problem: attribution</span></div>
+      <div class="card"><span class="num">★</span><h3>Evaluation and a shared deliverable</h3><p>Benchmarks, datasets, testbeds, digital twins, replications, negative results, and comparisons with non-LLM baselines are welcome under every theme. The four themes converge on a specification for reproducible cross-layer benchmarks, which we will draft together at the workshop.</p></div>
     </div>
 
     <h3 style="margin-top:44px">Scope</h3>
-    <p>Companion-app ecosystems, including smart homes and wearables, are our reference setting. We also welcome work on mobile software more broadly, and on medical and health devices, industrial IoT and operational technology, smart buildings and energy systems, consumer electronics and firmware, voice assistants and edge-AI products, robotics, connected-vehicle telematics, and over-the-air update infrastructure.</p>
+    <p>Companion-app ecosystems, including smart homes and wearables, are our reference setting. Connected vehicles are a second instance of the same structure, in which the vehicle, manufacturer cloud services and over-the-air update infrastructure, mobile apps, in-car LLM assistants, and digital twins form another cross-layer system. We also welcome work on mobile software and on automotive software engineering more broadly, including standalone mobile apps, in-vehicle software, and the simulation-based testing of driving functions. Medical devices, industrial IoT, smart buildings, consumer electronics and firmware, edge-AI products, and robotics are further instances.</p>
     <div class="callout"><strong>One boundary is enough.</strong> Work reasoning across app and cloud, cloud and device, app and device, or app and external services does not need to cover the whole chain. Single-artifact studies are in scope when they make their relationship to ecosystem behavior explicit or provide a substantive advance for LLM-assisted mobile software engineering.</div>
 
     <h3>Topics of interest include, but are not limited to</h3>
     <ul class="topics">
-      <li>LLM-assisted program comprehension across apps, clouds, and devices</li>
+      <li>LLM-assisted program comprehension across apps, clouds, devices, and vehicles</li>
       <li>Recovery of cross-component dependencies and data flows</li>
       <li>Interpretation of undocumented APIs and protocols</li>
       <li>LLM-guided GUI, API, and protocol testing and fuzzing</li>
-      <li>Oracles for remote and physical state</li>
+      <li>Oracles for remote and physical state, including simulators and digital twins</li>
+      <li>Simulation-based testing of vehicle software and the gap between simulated and real behavior</li>
       <li>Fault localization and repair across app, cloud, and firmware updates</li>
-      <li>Privacy and security compliance checking (e.g., GDPR, Cyber Resilience Act)</li>
+      <li>Privacy and security compliance checking (e.g., GDPR, Cyber Resilience Act, UN Regulations 155 and 156)</li>
       <li>Analysis of opaque components: vendor clouds, closed firmware, OTA updates</li>
-      <li>Assurance and authorization of LLM agents acting on connected systems</li>
+      <li>Assurance and authorization of LLM agents and in-car assistants acting on connected systems</li>
       <li>Validation of generated automation rules</li>
       <li>Benchmarks, datasets, testbeds, and digital twins</li>
       <li>Replications, negative results, and comparisons with non-LLM baselines</li>
@@ -295,6 +295,7 @@
       <div class="card person"><div class="avatar">MA</div><div><h3>Marco Alecci</h3><div class="aff">SnT, University of Luxembourg, Luxembourg</div><div class="role">Non-archival track and publicity</div></div></div>
       <div class="card person"><div class="avatar">LV</div><div><h3>Luca Verderame</h3><div class="aff">University of Genoa, Italy</div><div class="role">Industry outreach and demonstrations</div></div></div>
       <div class="card person"><div class="avatar">JK</div><div><h3>Jacques Klein</h3><div class="aff">SnT, University of Luxembourg, Luxembourg</div><div class="role">Proceedings</div></div></div>
+      <div class="card person"><div class="avatar">AS</div><div><h3>Andrea Stocco</h3><div class="aff">Technical University of Munich and fortiss, Germany</div><div class="role">Connected vehicles and automotive outreach</div></div></div>
     </div>
 
     <h3 style="margin-top:40px">Web chair</h3>
