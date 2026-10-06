@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ConnectedSE 2027</title>
-<meta name="description" content="ConnectedSE 2027, the First International Workshop on LLM-Assisted Software Engineering for Cross-Layer Mobile and Cyber-Physical Systems, co-located with FSE 2027 in Shenzhen, China.">
+<meta name="description" content="ConnectedSE 2027, the First International Workshop on LLM-Assisted Software Engineering Across the Boundaries of Mobile and Cyber-Physical Systems, co-located with FSE 2027 in Shenzhen, China.">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -164,7 +164,7 @@
   <div class="wrap">
     <span class="tag">1st International Workshop · co-located with <a href="https://conf.researchr.org/home/fse-2027" style="color:inherit;text-decoration:underline">FSE 2027</a></span>
     <h1>ConnectedSE 2027</h1>
-    <p class="sub">The First International Workshop on LLM-Assisted Software Engineering for Cross-Layer Mobile and Cyber-Physical Systems</p>
+    <p class="sub">LLM-Assisted Software Engineering Across the Boundaries of Mobile and Cyber-Physical Systems</p>
     <div class="meta">
       <span>📍 Shenzhen, China</span>
       <span>📅 July 2027 (exact day to be announced)</span>
@@ -181,9 +181,9 @@
   <div class="wrap">
     <span class="kicker">About</span>
     <h2>Why ConnectedSE</h2>
-    <p class="lead">Many features of connected software are cross-layer. A single user-visible function can cross a mobile app, a vendor or manufacturer cloud, device firmware, and a physical device or vehicle, each developed and updated independently and often partly opaque to the engineers who depend on it.</p>
-    <p>Many failures, vulnerabilities, and privacy leaks arise at the interfaces between these layers rather than inside any one of them. Large language models (LLMs) offer new support for program understanding, test generation, vulnerability analysis, debugging, and maintenance, but their conclusions must be validated against behavior that no single artifact contains.</p>
-    <p>ConnectedSE puts these cross-layer features at its center. It covers both the use of LLMs to understand, test, and secure them and the engineering of systems in which LLM-based components act across layers. Application domains, from smart homes and wearables to connected vehicles, medical devices, and industrial IoT, are instances of the same problem rather than separate tracks.</p>
+    <p class="lead">Many features of connected software are cross-layer. A single user-visible function can cross a mobile app, a vendor or manufacturer cloud, device firmware, and a physical device or vehicle, each developed and updated independently.</p>
+    <p>Many failures, vulnerabilities, and privacy leaks arise at the boundaries between these layers rather than inside any one of them. The stakes are concrete. In one study, all 77 wireless dongles that connect a phone app to a vehicle's internal network were found vulnerable, with attacks ranging from privacy leakage to property theft and safety threats. Large language models (LLMs) matter at a boundary for two reasons. They are the first tools that read the artifacts on both sides together, such as app code, firmware, protocol traces, and vendor documentation. They are also most likely to be wrong exactly there, because the far side is often unobservable, so their conclusions must be validated against behavior that no single artifact contains.</p>
+    <p>These systems share one structure. The mobile app is the layer through which users reach almost all of them, and the one that any research group can obtain and instrument. A cloud mediates, firmware and a physical device or vehicle close the chain, and an LLM-based assistant may sit on top as one more layer. ConnectedSE therefore treats mobile, IoT, and automotive software as layers of one problem rather than as separate domains. Its unit of study is the boundary between two layers.</p>
     <div class="callout"><strong>Our guiding question.</strong> What evidence is needed to make a reliable claim about a feature whose behavior no single layer contains?</div>
   </div>
 </section>
@@ -191,36 +191,34 @@
 <section id="cfp" class="alt">
   <div class="wrap">
     <span class="kicker">Call for Papers</span>
-    <h2>Four themes</h2>
-    <p class="lead">The workshop is organized around four problems that arise at the interfaces between layers. Each one is tied to a kind of claim and to the evidence that claim requires.</p>
+    <h2>Three themes, one boundary</h2>
+    <p class="lead">The workshop is organized around the three things engineers do at a boundary between layers. Each one is tied to a kind of claim and to the evidence that claim requires.</p>
     <div class="grid g3">
-      <div class="card"><span class="num">1</span><h3>Cross-layer understanding and traceability</h3><p>Techniques that connect GUI actions, app code, APIs, cloud services, firmware, protocols, and execution traces, recover dependencies and data flows, or interpret undocumented interfaces.</p><span class="evidence">Evidence problem: linkage</span></div>
-      <div class="card"><span class="num">2</span><h3>Cross-layer testing, debugging, and evolution</h3><p>End-to-end test generation, state exploration, oracle construction, fault localization, and repair validation across app, cloud, device, and vehicle updates, with simulators and digital twins as oracles for physical state.</p><span class="evidence">Evidence problem: oracles</span></div>
-      <div class="card"><span class="num">3</span><h3>Security, privacy, and compliance at layer interfaces</h3><p>Checking privacy and security obligations across app code, network traffic, backends, and devices, including opaque layers such as vendor clouds, closed firmware, and over-the-air updates.</p><span class="evidence">Evidence problem: defensibility</span></div>
-      <div class="card"><span class="num">4</span><h3>LLM-based components acting across layers</h3><p>Validating the automation rules and API interactions generated by smart-home agents and in-car assistants, keeping actions within authorization boundaries, linking model decisions to observable effects, and handling failures safely.</p><span class="evidence">Evidence problem: attribution</span></div>
-      <div class="card"><span class="num">★</span><h3>Evaluation and a shared deliverable</h3><p>Benchmarks, datasets, testbeds, digital twins, replications, negative results, and comparisons with non-LLM baselines are welcome under every theme. The four themes converge on a specification for reproducible cross-layer benchmarks, which we will draft together at the workshop.</p></div>
+      <div class="card"><span class="num">1</span><h3>Recover what crosses a boundary</h3><p>Techniques that connect GUI actions, app code, APIs, cloud services, firmware, protocols, and execution traces, recover dependencies and data flows, or interpret undocumented interfaces.</p><span class="evidence">Evidence problem: linkage</span></div>
+      <div class="card"><span class="num">2</span><h3>Exercise a boundary</h3><p>Test generation, state exploration, oracle construction, fault localization, and repair validation across app, cloud, device, and vehicle updates, with simulators and digital twins as oracles for the state on the far side.</p><span class="evidence">Evidence problem: oracles</span></div>
+      <div class="card"><span class="num">3</span><h3>Assure a boundary</h3><p>Checking security, privacy, and compliance obligations when the far side is opaque, and keeping LLM-based layers such as smart-home agents and in-car assistants within their authorization, with decisions traceable to observable effects.</p><span class="evidence">Evidence problem: defensibility</span></div>
     </div>
+    <div class="callout"><strong>Every submission carries a boundary statement.</strong> In a few lines, name the neighbouring layers your result depends on, say how each was treated (real, mocked, emulated, simulated, or ignored), and say what would change if that assumption failed. This is what makes a mobile-only, firmware-only, or vehicle-only study comparable with a cross-layer one.</div>
+    <div class="callout"><strong>A shared deliverable.</strong> Benchmarks, datasets, testbeds, digital twins, replications, negative results, and comparisons with non-LLM baselines are welcome under every theme. The boundary statements of the accepted contributions are the starting material for a boundary map of the field, which we will draw together at the workshop. It shows which boundaries are studied, which assumptions recur, and which candidate tasks a reproducible cross-layer benchmark should contain.</div>
 
     <h3 style="margin-top:44px">Scope</h3>
-    <p>Companion-app ecosystems, including smart homes and wearables, are our reference setting. Connected vehicles are a second instance of the same structure, in which the vehicle, manufacturer cloud services and over-the-air update infrastructure, mobile apps, in-car LLM assistants, and digital twins form another cross-layer system. We also welcome work on mobile software and on automotive software engineering more broadly, including standalone mobile apps, in-vehicle software, and the simulation-based testing of driving functions. Medical devices, industrial IoT, smart buildings, consumer electronics and firmware, edge-AI products, and robotics are further instances.</p>
+    <p>We have two reference settings. In companion-app ecosystems, including smart homes and wearables, an app, a vendor cloud, and device firmware share a feature. In connected vehicles, the vehicle, manufacturer cloud services and over-the-air update infrastructure, mobile apps, in-car LLM assistants, and digital twins form the same structure. We also welcome work on mobile software and on automotive software engineering more broadly, including standalone mobile apps, in-vehicle software, and the simulation-based testing of driving functions. Medical devices and industrial IoT are further instances.</p>
     <div class="callout"><strong>One boundary is enough.</strong> Work reasoning across app and cloud, cloud and device, app and device, or app and external services does not need to cover the whole chain. Single-artifact studies are in scope when they make their relationship to ecosystem behavior explicit or provide a substantive advance for LLM-assisted mobile software engineering.</div>
 
     <h3>Topics of interest include, but are not limited to</h3>
     <ul class="topics">
-      <li>LLM-assisted program comprehension across apps, clouds, devices, and vehicles</li>
-      <li>Recovery of cross-component dependencies and data flows</li>
+      <li>Recovery of dependencies and data flows across apps, clouds, firmware, and vehicles</li>
       <li>Interpretation of undocumented APIs and protocols</li>
       <li>LLM-guided GUI, API, and protocol testing and fuzzing</li>
       <li>Oracles for remote and physical state, including simulators and digital twins</li>
-      <li>Simulation-based testing of vehicle software and the gap between simulated and real behavior</li>
+      <li>The gap between simulated and real behavior in device and vehicle testing</li>
+      <li>Companion apps, digital keys, dongles, and telematics as paths from the phone to the vehicle</li>
       <li>Fault localization and repair across app, cloud, and firmware updates</li>
       <li>Privacy and security compliance checking (e.g., GDPR, Cyber Resilience Act, UN Regulations 155 and 156)</li>
-      <li>Analysis of opaque components: vendor clouds, closed firmware, OTA updates</li>
-      <li>Assurance and authorization of LLM agents and in-car assistants acting on connected systems</li>
-      <li>Validation of generated automation rules</li>
-      <li>Benchmarks, datasets, testbeds, and digital twins</li>
-      <li>Replications, negative results, and comparisons with non-LLM baselines</li>
-      <li>Industrial experience reports</li>
+      <li>Analysis of opaque layers such as vendor clouds, closed firmware, and over-the-air updates</li>
+      <li>Authorization and traceability of LLM agents and in-car assistants</li>
+      <li>Testing and benchmarking of in-car LLM assistants</li>
+      <li>Benchmarks, datasets, testbeds, replications, negative results, and industrial experience reports</li>
     </ul>
   </div>
 </section>
@@ -231,13 +229,10 @@
     <h2>Deadlines</h2>
     <p class="lead">All deadlines are Anywhere on Earth (AoE, UTC-12).</p>
     <table class="dates">
-      <tr class="group"><td colspan="2">Archival track (ACM Digital Library)</td></tr>
+      <tr class="group"><td colspan="2">Papers (ACM Digital Library)</td></tr>
       <tr><td>Paper submission</td><td>11 February 2027</td></tr>
       <tr><td>Author notification</td><td>18 March 2027</td></tr>
-      <tr><td>Camera-ready</td><td>8 April 2027</td></tr>
-      <tr class="group"><td colspan="2">Non-archival track</td></tr>
-      <tr><td>Late-breaking results and posters, submission</td><td>15 April 2027</td></tr>
-      <tr><td>Late-breaking results and posters, notification</td><td>29 April 2027</td></tr>
+      <tr><td>Camera-ready</td><td>1 April 2027</td></tr>
       <tr class="group"><td colspan="2">Workshop</td></tr>
       <tr><td>ConnectedSE 2027 at FSE, Shenzhen</td><td>July 2027 (TBA)</td></tr>
     </table>
@@ -248,32 +243,30 @@
   <div class="wrap">
     <span class="kicker">Submission</span>
     <h2>Contribution types</h2>
-    <div class="grid g2">
+    <p class="lead">All accepted contributions are published in the ACM Digital Library and presented at the workshop. Page limits include references. In line with the FSE 2027 call, the workshop is not an alternative venue for full research papers, and we encourage short contributions.</p>
+    <div class="grid g3">
       <div class="card">
-        <h3>Archival track</h3>
-        <p>Published in the ACM Digital Library as <strong>extended abstracts, free of article processing charges</strong>.</p>
-        <ul>
-          <li>Research, experience, replication, negative-result, tool, and dataset or benchmark extended abstracts: <strong>up to 5 pages</strong> including references.</li>
-          <li>Vision, emerging-ideas, and position extended abstracts: <strong>up to 3 pages</strong> including references.</li>
-        </ul>
-        <p>Submissions undergo double-anonymous review by at least three program committee members. Borderline submissions may be offered a poster or lightning-talk slot.</p>
+        <h3>Extended abstracts</h3>
+        <p><strong>Up to 5 pages, free of article processing charges.</strong> Research, experience, replication studies, negative results, tools, datasets, and benchmarks at an early stage. A mature evaluation is not required.</p>
       </div>
       <div class="card">
-        <h3>Non-archival track</h3>
-        <p>Presented at the workshop but not published, so the work stays free to be submitted elsewhere.</p>
-        <ul>
-          <li><strong>Encore talks</strong>: a one-page abstract referring to work published or accepted elsewhere in the previous 24 months.</li>
-          <li><strong>Late-breaking results, lightning talks, and posters</strong>: 1 to 2 pages.</li>
-        </ul>
-        <p>Work under review elsewhere is eligible for this track only.</p>
+        <h3>Vision and position extended abstracts</h3>
+        <p><strong>Up to 3 pages, free of article processing charges.</strong> A direction, a problem, or an argument that the community should discuss.</p>
+      </div>
+      <div class="card">
+        <h3>Long papers</h3>
+        <p><strong>Up to 8 pages.</strong> For work that needs the space, such as replication studies and benchmarks. Long papers follow the ACM Open policy, under which authors outside participating institutions pay an article processing charge.</p>
       </div>
     </div>
 
     <h3 style="margin-top:40px">Guidelines</h3>
     <ul>
       <li>Submissions must follow the ACM format adopted by FSE 2027. Formatting details and the submission link will be published here.</li>
-      <li>Reviewing criteria are relevance, technical credibility, clarity, evidence appropriate to the contribution type, and ability to spark discussion. Vision, position, and emerging-ideas papers do not need a mature evaluation, and preliminary results are welcome.</li>
-      <li>For an archival contribution to appear in the proceedings, at least one of its authors must register for the workshop.</li>
+      <li>Every submission includes a short boundary statement, as described in the Call for Papers.</li>
+      <li>All submissions undergo double-anonymous review by at least three program committee members. A long paper may be accepted as an extended abstract.</li>
+      <li>Reviewing criteria are relevance, technical credibility, clarity, evidence appropriate to the contribution type, and ability to spark discussion. Relevance is judged by how useful the result is to researchers working on another layer. At comparable quality, cross-layer work has priority over single-layer studies.</li>
+      <li>Sessions are organized by problem rather than by domain, and each is chaired by a researcher from a different layer. The day ends with a boundary-mapping session, and a best-paper award is given at the closing.</li>
+      <li>For a contribution to appear in the proceedings, at least one of its authors must register for the workshop.</li>
       <li>FSE 2027 is an in-person event, and each accepted contribution must be presented on site.</li>
       <li>Following the SIGSOFT policy, the organizers and their directly supervised students, postdocs, and employees do not submit to ConnectedSE.</li>
       <li>As a published ACM author, you and your co-authors are subject to all ACM Publications Policies, including ACM's new <a href="https://www.acm.org/publications/policies/research-involving-human-participants-and-subjects">Publications Policy on Research Involving Human Participants and Subjects</a>.</li>
@@ -291,11 +284,11 @@
     <!-- To use a photo, replace a <div class="avatar">XX</div> with <img class="avatar" src="img/name.jpg" alt="Name"> -->
     <div class="grid g3">
       <div class="card person"><div class="avatar">FP</div><div><h3>Francesco Pagano</h3><div class="aff">University of Verona, Italy</div><div class="role">Submissions and submission system · main contact</div></div></div>
-      <div class="card person"><div class="avatar">LF</div><div><h3>Luca Ferrari</h3><div class="aff">IMT School for Advanced Studies Lucca, Italy</div><div class="role">Program committee and review of archival contributions</div></div></div>
-      <div class="card person"><div class="avatar">MA</div><div><h3>Marco Alecci</h3><div class="aff">SnT, University of Luxembourg, Luxembourg</div><div class="role">Non-archival track and publicity</div></div></div>
-      <div class="card person"><div class="avatar">LV</div><div><h3>Luca Verderame</h3><div class="aff">University of Genoa, Italy</div><div class="role">Industry outreach and demonstrations</div></div></div>
+      <div class="card person"><div class="avatar">LF</div><div><h3>Luca Ferrari</h3><div class="aff">IMT School for Advanced Studies Lucca, Italy</div><div class="role">Program committee and review process</div></div></div>
+      <div class="card person"><div class="avatar">MA</div><div><h3>Marco Alecci</h3><div class="aff">SnT, University of Luxembourg, Luxembourg</div><div class="role">Publicity and best-paper award</div></div></div>
+      <div class="card person"><div class="avatar">LV</div><div><h3>Luca Verderame</h3><div class="aff">University of Genoa, Italy</div><div class="role">Industry outreach and journal special issue</div></div></div>
       <div class="card person"><div class="avatar">JK</div><div><h3>Jacques Klein</h3><div class="aff">SnT, University of Luxembourg, Luxembourg</div><div class="role">Proceedings</div></div></div>
-      <div class="card person"><div class="avatar">AS</div><div><h3>Andrea Stocco</h3><div class="aff">Technical University of Munich and fortiss, Germany</div><div class="role">Keynote and benchmark-design session</div></div></div>
+      <div class="card person"><div class="avatar">AS</div><div><h3>Andrea Stocco</h3><div class="aff">Technical University of Munich and fortiss, Germany</div><div class="role">Keynote and boundary-mapping session</div></div></div>
     </div>
 
     <h3 style="margin-top:40px">Web chair</h3>
