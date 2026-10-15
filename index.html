@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ConnectedSE 2027</title>
-<meta name="description" content="ConnectedSE 2027, the First International Workshop on LLM-Assisted Software Engineering Across the Boundaries of Mobile and Cyber-Physical Systems, co-located with FSE 2027 in Shenzhen, China.">
+<meta name="description" content="ConnectedSE 2027, the First International Workshop on Engineering Across Boundaries in Mobile and Cyber-Physical Systems, co-located with FSE 2027 in Shenzhen, China.">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -164,7 +164,7 @@
   <div class="wrap">
     <span class="tag">1st International Workshop · co-located with <a href="https://conf.researchr.org/home/fse-2027" style="color:inherit;text-decoration:underline">FSE 2027</a></span>
     <h1>ConnectedSE 2027</h1>
-    <p class="sub">LLM-Assisted Software Engineering Across the Boundaries of Mobile and Cyber-Physical Systems</p>
+    <p class="sub">Engineering Across Boundaries in Mobile and Cyber-Physical Systems</p>
     <div class="meta">
       <span>📍 Shenzhen, China</span>
       <span>📅 July 2027 (exact day to be announced)</span>
@@ -182,9 +182,13 @@
     <span class="kicker">About</span>
     <h2>Why ConnectedSE</h2>
     <p class="lead">Many features of connected software are cross-layer. A single user-visible function can cross a mobile app, a vendor or manufacturer cloud, device firmware, and a physical device or vehicle, each developed and updated independently.</p>
-    <p>Many failures, vulnerabilities, and privacy leaks arise at the boundaries between these layers rather than inside any one of them. The stakes are concrete. In one study, all 77 wireless dongles that connect a phone app to a vehicle's internal network were found vulnerable, with attacks ranging from privacy leakage to property theft and safety threats. Large language models (LLMs) matter at a boundary for two reasons. They are the first tools that read the artifacts on both sides together, such as app code, firmware, protocol traces, and vendor documentation. They are also most likely to be wrong exactly there, because the far side is often unobservable, so their conclusions must be validated against behavior that no single artifact contains.</p>
-    <p>These systems share one structure. The mobile app is the layer through which users reach almost all of them, and the one that any research group can obtain and instrument. A cloud mediates, firmware and a physical device or vehicle close the chain, and an LLM-based assistant may sit on top as one more layer. ConnectedSE therefore treats mobile, IoT, and automotive software as layers of one problem rather than as separate domains. Its unit of study is the boundary between two layers.</p>
-    <div class="callout"><strong>Our guiding question.</strong> What evidence is needed to make a reliable claim about a feature whose behavior no single layer contains?</div>
+    <p>Many failures, vulnerabilities, and privacy leaks arise at the boundaries between these layers rather than inside any one of them. For example, Wen et al. tested all 77 commercial wireless dongles that link a phone app to a vehicle's internal network and found every one of them vulnerable, with attacks reaching privacy leakage, property theft, and safety threats.</p>
+    <p>These systems share one structure. The mobile app is the layer through which users reach almost all of them, and the one that any research group can obtain and instrument. A cloud mediates, firmware and a physical device or vehicle close the chain, and an LLM-based assistant or agent may sit on top as one more layer. ConnectedSE therefore treats mobile, IoT, and automotive software as layers of one problem rather than as separate domains. Its unit of study is the boundary between two layers.</p>
+    <div class="grid g2">
+      <div class="card"><h3>LLMs reason about the other side</h3><p>Large language models are the first tools that can read the artifacts on both sides of a boundary together, such as app code, firmware, protocol traces, and vendor documentation. An LLM reads one side and proposes a claim about the other, and this is exactly where it is most likely to be wrong, because the far side is often unobservable.</p></div>
+      <div class="card"><h3>Agents act across it</h3><p>An LLM-based agent that invokes APIs, alters cloud-side state, and triggers device or vehicle functions is itself a cross-layer feature, whose effects no single layer records. The same ability makes agents useful for analysis, since an agent can explore an app, query a backend, and inspect firmware traces to gather the evidence that no single artifact contains. Agents are therefore part of the problem and part of the solution.</p></div>
+    </div>
+    <div class="callout"><strong>Our guiding question.</strong> What evidence is needed to make a reliable claim about behavior that no single layer contains?</div>
   </div>
 </section>
 
@@ -192,18 +196,18 @@
   <div class="wrap">
     <span class="kicker">Call for Papers</span>
     <h2>Three themes, one boundary</h2>
-    <p class="lead">The workshop is organized around the three things engineers do at a boundary between layers. Each one is tied to a kind of claim and to the evidence that claim requires.</p>
+    <p class="lead">The workshop is organized around the three things engineers do at a boundary between layers. In each of them it asks how to check what an LLM claims and what an agent does.</p>
     <div class="grid g3">
-      <div class="card"><span class="num">1</span><h3>Recover what crosses a boundary</h3><p>Techniques that connect GUI actions, app code, APIs, cloud services, firmware, protocols, and execution traces, recover dependencies and data flows, or interpret undocumented interfaces.</p><span class="evidence">Evidence problem: linkage</span></div>
-      <div class="card"><span class="num">2</span><h3>Exercise a boundary</h3><p>Test generation, state exploration, oracle construction, fault localization, and repair validation across app, cloud, device, and vehicle updates, with simulators and digital twins as oracles for the state on the far side.</p><span class="evidence">Evidence problem: oracles</span></div>
-      <div class="card"><span class="num">3</span><h3>Assure a boundary</h3><p>Checking security, privacy, and compliance obligations when the far side is opaque, and keeping LLM-based layers such as smart-home agents and in-car assistants within their authorization, with decisions traceable to observable effects.</p><span class="evidence">Evidence problem: defensibility</span></div>
+      <div class="card"><span class="num">1</span><h3>Recover what crosses a boundary</h3><p>Techniques that connect GUI actions, app code, APIs, cloud services, firmware, protocols, and execution traces, recover dependencies and data flows, or interpret undocumented interfaces. For agents, what a single agent action triggers on each layer, and agents that explore the layers to recover these links.</p><span class="evidence">An LLM proposes a link, an agent's action creates one · evidence problem: linkage</span></div>
+      <div class="card"><span class="num">2</span><h3>Exercise a boundary</h3><p>Test generation, state exploration, oracle construction, fault localization, and repair validation across app, cloud, device, and vehicle updates, with simulators and digital twins as oracles for the state on the far side. For agents, testing the remote and physical effects of their actions, and agents that generate and run tests across layers.</p><span class="evidence">An LLM proposes an expected state, an agent produces one · evidence problem: oracles</span></div>
+      <div class="card"><span class="num">3</span><h3>Assure a boundary</h3><p>Checking security, privacy, and compliance obligations when the far side is opaque. For agents, keeping smart-home agents and in-car assistants within their authorization with decisions traceable to observable effects, and agents that collect cross-layer evidence for compliance checks.</p><span class="evidence">An LLM proposes a judgement, an agent acts on one · evidence problem: defensibility</span></div>
     </div>
     <div class="callout"><strong>Every submission carries a boundary statement.</strong> In a few lines, name the neighbouring layers your result depends on, say how each was treated (real, mocked, emulated, simulated, or ignored), and say what would change if that assumption failed. This is what makes a mobile-only, firmware-only, or vehicle-only study comparable with a cross-layer one.</div>
-    <div class="callout"><strong>A shared deliverable.</strong> Benchmarks, datasets, testbeds, digital twins, replications, negative results, and comparisons with non-LLM baselines are welcome under every theme. The boundary statements of the accepted contributions are the starting material for a boundary map of the field, which we will draw together at the workshop. It shows which boundaries are studied, which assumptions recur, and which candidate tasks a reproducible cross-layer benchmark should contain.</div>
+    <div class="callout"><strong>A shared deliverable.</strong> Benchmarks, datasets, testbeds, digital twins, replications, and negative results are welcome under every theme. The boundary statements of the accepted contributions are the starting material for a boundary map of the field, which we will draw together at the workshop. It shows which boundaries are studied, including those crossed by agents, which assumptions recur, and which candidate tasks a reproducible cross-layer benchmark should contain.</div>
 
     <h3 style="margin-top:44px">Scope</h3>
-    <p>We have two reference settings. In companion-app ecosystems, including smart homes and wearables, an app, a vendor cloud, and device firmware share a feature. In connected vehicles, the vehicle, manufacturer cloud services and over-the-air update infrastructure, mobile apps, in-car LLM assistants, and digital twins form the same structure. We also welcome work on mobile software and on automotive software engineering more broadly, including standalone mobile apps, in-vehicle software, and the simulation-based testing of driving functions. Medical devices and industrial IoT are further instances.</p>
-    <div class="callout"><strong>One boundary is enough.</strong> Work reasoning across app and cloud, cloud and device, app and device, or app and external services does not need to cover the whole chain. Single-artifact studies are in scope when they make their relationship to ecosystem behavior explicit or provide a substantive advance for LLM-assisted mobile software engineering.</div>
+    <p>Domains are examples, not separate tracks. We have two reference settings. In companion-app ecosystems, including smart homes and wearables, an app, a vendor cloud, and device firmware share a feature. In connected vehicles, the vehicle, manufacturer cloud services and over-the-air update infrastructure, mobile apps, in-car LLM assistants, and digital twins form the same structure. Medical devices and industrial IoT are further examples.</p>
+    <div class="callout"><strong>One boundary is enough.</strong> Work from any of these domains is welcome, including the study of a single layer such as a standalone mobile app, a firmware image, or a vehicle function, provided it addresses a concrete problem at a boundary with the APIs, services, devices, or components that layer depends on. No contribution needs to cover the whole chain.</div>
 
     <h3>Topics of interest include, but are not limited to</h3>
     <ul class="topics">
@@ -216,8 +220,9 @@
       <li>Fault localization and repair across app, cloud, and firmware updates</li>
       <li>Privacy and security compliance checking (e.g., GDPR, Cyber Resilience Act, UN Regulations 155 and 156)</li>
       <li>Analysis of opaque layers such as vendor clouds, closed firmware, and over-the-air updates</li>
-      <li>Authorization and traceability of LLM agents and in-car assistants</li>
-      <li>Testing and benchmarking of in-car LLM assistants</li>
+      <li>Tracing and testing what agents trigger across apps, clouds, devices, and vehicles</li>
+      <li>Authorization and traceability of agents and in-car assistants</li>
+      <li>Agents that explore, test, and gather evidence across layers</li>
       <li>Benchmarks, datasets, testbeds, replications, negative results, and industrial experience reports</li>
     </ul>
   </div>
@@ -264,7 +269,7 @@
       <li>Submissions must follow the ACM format adopted by FSE 2027. Formatting details and the submission link will be published here.</li>
       <li>Every submission includes a short boundary statement, as described in the Call for Papers.</li>
       <li>All submissions undergo double-anonymous review by at least three program committee members. A long paper may be accepted as an extended abstract.</li>
-      <li>Reviewing criteria are relevance, technical credibility, clarity, evidence appropriate to the contribution type, and ability to spark discussion. Relevance is judged by how useful the result is to researchers working on another layer. At comparable quality, cross-layer work has priority over single-layer studies.</li>
+      <li>Reviewing criteria are relevance, technical credibility, clarity, evidence appropriate to the contribution type, and ability to spark discussion. Relevance is judged by how useful the result is to researchers working on another layer. At comparable quality, cross-layer work has priority over single-layer studies. Contributions based on LLMs or agents are expected to compare with a baseline that does without them or to say why none exists.</li>
       <li>Sessions are organized by problem rather than by domain, and each is chaired by a researcher from a different layer. The day ends with a boundary-mapping session, and a best-paper award is given at the closing.</li>
       <li>For a contribution to appear in the proceedings, at least one of its authors must register for the workshop.</li>
       <li>FSE 2027 is an in-person event, and each accepted contribution must be presented on site.</li>
