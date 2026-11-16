@@ -1,6 +1,6 @@
 # ConnectedSE 2027
 
-Website of ConnectedSE 2027, the First International Workshop on LLM-Assisted Software Engineering at the Intersection of Mobile and Cyber-Physical Systems, co-located with FSE 2027.
+Website of ConnectedSE 2027, the First International Workshop on LLM-Assisted Software Engineering at the Intersection of Mobile and Cyber-Physical Systems, co-located with ISSTA 2027.
 
 ## Publishing on GitHub Pages
 
